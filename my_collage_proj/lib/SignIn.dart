@@ -1,7 +1,11 @@
+import 'dart:js';
+
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+
+import 'facebook.dart';
 
 class LoginPageWidget extends StatefulWidget {
   @override
@@ -38,7 +42,9 @@ class LoginPageWidgetState extends State<LoginPageWidget> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Container(
+        body: Column(
+      children: [
+        Container(
             padding: EdgeInsets.all(50),
             child: Align(
                 alignment: Alignment.center,
@@ -64,7 +70,10 @@ class LoginPageWidgetState extends State<LoginPageWidget> {
                                     : 'Login with Google',
                                 style: TextStyle(color: Colors.white))
                           ],
-                        ))))));
+                        ))))),
+        Container(child: LoginWithFacebook()),
+      ],
+    ));
   }
 
   Future<User> _handleSignIn() async {
