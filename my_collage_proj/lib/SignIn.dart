@@ -2,8 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-
-import 'facebook.dart';
+import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 
 class LoginPageWidget extends StatefulWidget {
   @override
@@ -13,7 +12,8 @@ class LoginPageWidget extends StatefulWidget {
 class LoginPageWidgetState extends State<LoginPageWidget> {
   GoogleSignIn _googleSignIn = GoogleSignIn();
   FirebaseAuth _auth;
-
+  bool _isLoggedIn = false;
+  Map _userObj = {};
   bool isUserSignedIn = false;
 
   @override
@@ -40,37 +40,87 @@ class LoginPageWidgetState extends State<LoginPageWidget> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Column(
-      children: [
-        Container(
-            padding: EdgeInsets.all(50),
-            child: Align(
-                alignment: Alignment.center,
-                child: FlatButton(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    onPressed: () {
-                      onGoogleSignIn(context);
-                    },
-                    color: isUserSignedIn ? Colors.green : Colors.blueAccent,
-                    child: Padding(
-                        padding: EdgeInsets.all(10),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: <Widget>[
-                            Icon(Icons.account_circle, color: Colors.white),
-                            SizedBox(width: 10),
-                            Text(
-                                isUserSignedIn
-                                    ? 'You\'re logged in with Google'
-                                    : 'Login with Google',
-                                style: TextStyle(color: Colors.white))
-                          ],
-                        ))))),
-        Container(child: LoginWithFacebook()),
-      ],
+        body: Center(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          SizedBox(
+            width: 500,
+            child: Container(
+                padding: EdgeInsets.all(50),
+                child: Align(
+                    alignment: Alignment.center,
+                    child: FlatButton(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        onPressed: () {
+                          onGoogleSignIn(context);
+                        },
+                        color:
+                            isUserSignedIn ? Colors.green : Colors.blueAccent,
+                        child: Padding(
+                            padding: EdgeInsets.all(10),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: <Widget>[
+                                Icon(Icons.account_circle, color: Colors.white),
+                                SizedBox(width: 10),
+                                Text(
+                                    isUserSignedIn
+                                        ? 'You\'re logged in with Google'
+                                        : 'Login with Google',
+                                    style: TextStyle(color: Colors.white))
+                              ],
+                            ))))),
+          ),
+          SizedBox(
+            width: 500,
+            child: Container(
+                width: 50,
+                child: _isLoggedIn
+                    ? Column(
+                        children: [
+                          Image.network(_userObj["picture"]["data"]["url"]),
+                          Text(_userObj["name"]),
+                          Text(_userObj["email"]),
+                          TextButton(
+                              onPressed: () {
+                                FacebookAuth.instance.logOut().then((value) {
+                                  setState(() {
+                                    _isLoggedIn = false;
+                                    _userObj = {};
+                                  });
+                                });
+                              },
+                              child: Text("Logout"))
+                        ],
+                      )
+                    : Center(
+                        child: ElevatedButton(
+                          child: Text("Login with Facebook"),
+                          onPressed: () async {
+                            FacebookAuth.instance.login(permissions: [
+                              "public_profile",
+                              "email"
+                            ]).then((value) {
+                              FacebookAuth.instance
+                                  .getUserData()
+                                  .then((userData) {
+                                setState(() {
+                                  _isLoggedIn = true;
+                                  _userObj = userData;
+                                });
+                              });
+                            });
+                          },
+                        ),
+                      )),
+          ),
+        ],
+      ),
     ));
   }
 
