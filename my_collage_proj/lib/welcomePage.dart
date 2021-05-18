@@ -1,65 +1,243 @@
 import 'package:flutter/material.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:google_sign_in/google_sign_in.dart';
+import 'package:flutter/services.dart';
 
-// ignore: must_be_immutable
-class WelcomeUserWidget extends StatelessWidget {
-  GoogleSignIn _googleSignIn;
-  User _user;
+import 'SignIn.dart';
+import 'SignIn.dart';
+import 'SignIn1.dart';
 
-  WelcomeUserWidget(User user, GoogleSignIn signIn) {
-    _user = user;
-    _googleSignIn = signIn;
+class WelcomePage extends StatefulWidget {
+  @override
+  _WelcomePageState createState() => _WelcomePageState();
+}
+
+class _WelcomePageState extends State<WelcomePage> {
+  final int _numPages = 3;
+  final PageController _pageController = PageController(initialPage: 0);
+  int _currentPage = 0;
+
+  List<Widget> _buildPageIndicator() {
+    List<Widget> list = [];
+    for (int i = 0; i < _numPages; i++) {
+      list.add(i == _currentPage ? _indicator(true) : _indicator(false));
+    }
+    return list;
+  }
+
+  final kTitleStyle = TextStyle(
+    color: Colors.white,
+    fontFamily: 'CM Sans Serif',
+    fontSize: 26.0,
+    height: 1.5,
+  );
+
+  final kSubtitleStyle = TextStyle(
+    color: Colors.white,
+    fontSize: 18.0,
+    height: 1.2,
+  );
+  Widget _indicator(bool isActive) {
+    return AnimatedContainer(
+      duration: Duration(milliseconds: 150),
+      margin: EdgeInsets.symmetric(horizontal: 8.0),
+      height: 8.0,
+      width: isActive ? 24.0 : 16.0,
+      decoration: BoxDecoration(
+        color: isActive ? Colors.white : Colors.white,
+        borderRadius: BorderRadius.all(Radius.circular(12)),
+      ),
+    );
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.white,
-          iconTheme: IconThemeData(color: Colors.black),
-          elevation: 0,
-        ),
-        body: Container(
-            color: Colors.white,
-            padding: EdgeInsets.all(50),
-            child: Align(
-                alignment: Alignment.center,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    ClipOval(
-                        child: Image.network(_user.photoURL,
-                            width: 50, height: 50, fit: BoxFit.cover)),
-                    SizedBox(height: 10),
-                    Text('Welcome,', textAlign: TextAlign.center),
-                    Text(_user.displayName,
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 25)),
-                    SizedBox(height: 20),
-                    FlatButton(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(20),
+      body: AnnotatedRegion<SystemUiOverlayStyle>(
+        value: SystemUiOverlayStyle.light,
+        child: Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              stops: [0.1, 0.4, 0.7, 0.9],
+              colors: [
+                Color(0xFF17223b),
+                Color(0xFF17223b),
+                Color(0xFF263859),
+                Color(0xFF263859),
+              ],
+            ),
+          ),
+          child: Padding(
+            padding: EdgeInsets.symmetric(vertical: 40.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: <Widget>[
+                Container(
+                  height: 600.0,
+                  child: PageView(
+                    physics: ClampingScrollPhysics(),
+                    controller: _pageController,
+                    onPageChanged: (int page) {
+                      setState(() {
+                        _currentPage = page;
+                      });
+                    },
+                    children: <Widget>[
+                      Padding(
+                        padding: EdgeInsets.all(40.0),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Center(
+                              child: Image(
+                                image: AssetImage(
+                                  'assets/images/onboarding0.png',
+                                ),
+                                height: 300.0,
+                                width: 300.0,
+                              ),
+                            ),
+                            SizedBox(height: 30.0),
+                            Text(
+                              'Connect people\naround the world',
+                              style: kTitleStyle,
+                            ),
+                            SizedBox(height: 15.0),
+                            Text(
+                              'Lorem ipsum dolor sit amet, consect adipiscing elit, sed do eiusmod tempor incididunt ut labore et.',
+                              style: kSubtitleStyle,
+                            ),
+                          ],
                         ),
-                        onPressed: () {
-                          _googleSignIn.signOut();
-                          Navigator.pop(context, false);
-                        },
-                        color: Colors.redAccent,
-                        child: Padding(
-                            padding: EdgeInsets.all(10),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.all(40.0),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Center(
+                              child: Image(
+                                image: AssetImage(
+                                  'assets/images/onboarding1.png',
+                                ),
+                                height: 300.0,
+                                width: 300.0,
+                              ),
+                            ),
+                            SizedBox(height: 30.0),
+                            Text(
+                              'Live your life smarter\nwith us!',
+                              style: kTitleStyle,
+                            ),
+                            SizedBox(height: 15.0),
+                            Text(
+                              'Lorem ipsum dolor sit amet, consect adipiscing elit, sed do eiusmod tempor incididunt ut labore et.',
+                              style: kSubtitleStyle,
+                            ),
+                          ],
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.all(40.0),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Center(
+                              child: Image(
+                                image: AssetImage(
+                                  'assets/images/onboarding2.png',
+                                ),
+                                height: 300.0,
+                                width: 300.0,
+                              ),
+                            ),
+                            SizedBox(height: 30.0),
+                            Text(
+                              'Get a new experience\nof imagination',
+                              style: kTitleStyle,
+                            ),
+                            SizedBox(height: 15.0),
+                            Text(
+                              'Lorem ipsum dolor sit amet, consect adipiscing elit, sed do eiusmod tempor incididunt ut labore et.',
+                              style: kSubtitleStyle,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: _buildPageIndicator(),
+                ),
+                _currentPage != _numPages - 1
+                    ? Expanded(
+                        child: Align(
+                          alignment: FractionalOffset.bottomRight,
+                          child: FlatButton(
+                            onPressed: () {
+                              _pageController.nextPage(
+                                duration: Duration(milliseconds: 500),
+                                curve: Curves.ease,
+                              );
+                            },
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.center,
+                              mainAxisSize: MainAxisSize.min,
                               children: <Widget>[
-                                Icon(Icons.exit_to_app, color: Colors.white),
-                                SizedBox(width: 10),
-                                Text('Log out of Google',
-                                    style: TextStyle(color: Colors.white))
+                                Text(
+                                  'Next',
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 22.0,
+                                  ),
+                                ),
+                                SizedBox(width: 10.0),
+                                Icon(
+                                  Icons.arrow_forward,
+                                  color: Colors.white,
+                                  size: 30.0,
+                                ),
                               ],
-                            )))
-                  ],
-                ))));
+                            ),
+                          ),
+                        ),
+                      )
+                    : Text(''),
+              ],
+            ),
+          ),
+        ),
+      ),
+      bottomSheet: _currentPage == _numPages - 1
+          ? Container(
+              height: 110.0,
+              width: double.infinity,
+              color: Colors.white,
+              child: GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => LoginScreen()),
+                  );
+                },
+                child: Center(
+                  child: Padding(
+                    padding: EdgeInsets.only(bottom: 30.0),
+                    child: Text(
+                      'Get started',
+                      style: TextStyle(
+                        color: Color(0xFFef4f4f),
+                        fontSize: 20.0,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            )
+          : Text(''),
+    );
   }
 }

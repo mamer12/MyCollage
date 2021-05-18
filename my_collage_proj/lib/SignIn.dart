@@ -19,7 +19,6 @@ class LoginPageWidgetState extends State<LoginPageWidget> {
   @override
   void initState() {
     super.initState();
-
     initApp();
   }
 
@@ -40,87 +39,70 @@ class LoginPageWidgetState extends State<LoginPageWidget> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Center(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          SizedBox(
-            width: 500,
-            child: Container(
-                padding: EdgeInsets.all(50),
-                child: Align(
-                    alignment: Alignment.center,
-                    child: FlatButton(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(20),
-                        ),
-                        onPressed: () {
-                          onGoogleSignIn(context);
-                        },
-                        color:
-                            isUserSignedIn ? Colors.green : Colors.blueAccent,
-                        child: Padding(
-                            padding: EdgeInsets.all(10),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: <Widget>[
-                                Icon(Icons.account_circle, color: Colors.white),
-                                SizedBox(width: 10),
-                                Text(
-                                    isUserSignedIn
-                                        ? 'You\'re logged in with Google'
-                                        : 'Login with Google',
-                                    style: TextStyle(color: Colors.white))
-                              ],
-                            ))))),
-          ),
-          SizedBox(
-            width: 500,
-            child: Container(
-                width: 50,
-                child: _isLoggedIn
-                    ? Column(
-                        children: [
-                          Image.network(_userObj["picture"]["data"]["url"]),
-                          Text(_userObj["name"]),
-                          Text(_userObj["email"]),
-                          TextButton(
-                              onPressed: () {
-                                FacebookAuth.instance.logOut().then((value) {
-                                  setState(() {
-                                    _isLoggedIn = false;
-                                    _userObj = {};
-                                  });
-                                });
-                              },
-                              child: Text("Logout"))
-                        ],
-                      )
-                    : Center(
-                        child: ElevatedButton(
-                          child: Text("Login with Facebook"),
-                          onPressed: () async {
-                            FacebookAuth.instance.login(permissions: [
-                              "public_profile",
-                              "email"
-                            ]).then((value) {
-                              FacebookAuth.instance
-                                  .getUserData()
-                                  .then((userData) {
-                                setState(() {
-                                  _isLoggedIn = true;
-                                  _userObj = userData;
-                                });
+        body: Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        Column(
+          children: [
+            SizedBox(
+                width: 300,
+                height: 50,
+                child: OutlinedButton(
+                  onPressed: () {
+                    onGoogleSignIn(context);
+                  },
+                  child: Text('sign in with google'),
+                  style: OutlinedButton.styleFrom(
+                    primary: Colors.black,
+                    shape: StadiumBorder(
+                        side: BorderSide(
+                            color: Colors.red,
+                            style: BorderStyle.solid,
+                            width: 5)),
+                  ),
+                )),
+          ],
+        ),
+        Container(
+            width: 50,
+            child: _isLoggedIn
+                ? Column(
+                    children: [
+                      Image.network(_userObj["picture"]["data"]["url"]),
+                      Text(_userObj["name"]),
+                      Text(_userObj["email"]),
+                      TextButton(
+                          onPressed: () {
+                            FacebookAuth.instance.logOut().then((value) {
+                              setState(() {
+                                _isLoggedIn = false;
+                                _userObj = {};
                               });
                             });
                           },
-                        ),
-                      )),
-          ),
-        ],
-      ),
+                          child: Text("Logout"))
+                    ],
+                  )
+                : Center(
+                    child: ElevatedButton(
+                      child: Text("Login with Facebook"),
+                      onPressed: () async {
+                        FacebookAuth.instance.login(permissions: [
+                          "public_profile",
+                          "email"
+                        ]).then((value) {
+                          FacebookAuth.instance.getUserData().then((userData) {
+                            setState(() {
+                              _isLoggedIn = true;
+                              _userObj = userData;
+                            });
+                          });
+                        });
+                      },
+                    ),
+                  )),
+      ],
     ));
   }
 
