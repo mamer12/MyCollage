@@ -86,22 +86,20 @@ class _WelcomePageState extends State<WelcomePage> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
                             Center(
-                              child: Image(
-                                image: AssetImage(
-                                  'assets/images/onboarding0.png',
-                                ),
+                              child: Image.network(
+                                "https://img.freepik.com/free-vector/focused-people-studying-online-school_74855-5834.jpg?size=626&ext=jpg",
                                 height: 300.0,
                                 width: 300.0,
                               ),
                             ),
                             SizedBox(height: 30.0),
                             Text(
-                              'Connect people\naround the world',
+                              'تابع جميع الجامعات الاهلية في العراق',
                               style: kTitleStyle,
                             ),
                             SizedBox(height: 15.0),
                             Text(
-                              'Lorem ipsum dolor sit amet, consect adipiscing elit, sed do eiusmod tempor incididunt ut labore et.',
+                              'بأمكانك متابعه جميع الجامعات الاهليه مع جميع تفاصيل الجامعه والاساتذه المختصين',
                               style: kSubtitleStyle,
                             ),
                           ],
@@ -113,10 +111,8 @@ class _WelcomePageState extends State<WelcomePage> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
                             Center(
-                              child: Image(
-                                image: AssetImage(
-                                  'assets/images/onboarding1.png',
-                                ),
+                              child: Image.network(
+                                "https://png.pngtree.com/png-vector/20200518/ourlarge/pngtree-boys-study-at-the-online-study-desk-png-image_2207832.jpg",
                                 height: 300.0,
                                 width: 300.0,
                               ),
@@ -140,10 +136,8 @@ class _WelcomePageState extends State<WelcomePage> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
                             Center(
-                              child: Image(
-                                image: AssetImage(
-                                  'assets/images/onboarding2.png',
-                                ),
+                              child: Image.network(
+                                "https://i.pinimg.com/736x/64/ca/97/64ca9779470792fb64f54843ee042a43.jpg",
                                 height: 300.0,
                                 width: 300.0,
                               ),

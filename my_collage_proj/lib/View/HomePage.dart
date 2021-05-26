@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:my_collage_proj/widgets/Card.dart';
 import 'package:my_collage_proj/widgets/homePageitem.dart';
 import 'package:my_collage_proj/app_Data.dart';
 
@@ -144,16 +145,7 @@ class _WelcomeUserWidgetState extends State<WelcomeUserWidget> {
               )),
             ],
           )),
-          body: GridView(
-              gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-                maxCrossAxisExtent: 200,
-                childAspectRatio: 7 / 8,
-                mainAxisSpacing: 10,
-                crossAxisSpacing: 10,
-              ),
-              children: page_Data
-                  .map((homeData) => DataName(homeData.imgUrl, homeData.title))
-                  .toList()),
+          body: CardView(),
         ));
   }
 }
