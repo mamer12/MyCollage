@@ -12,6 +12,7 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   GoogleSignIn _googleSignIn = GoogleSignIn();
+  // ignore: unused_field
   FirebaseAuth _auth;
   bool isUserSignedIn = false;
 
@@ -72,7 +73,7 @@ class _LoginScreenState extends State<LoginScreen> {
             borderSide: BorderSide(
                 color: Colors.white, style: BorderStyle.solid, width: 4),
             child: Text(
-              'LOGIN WITH Google',
+              'المتابعة بأستخدام حساب جوجل',
               style: TextStyle(
                 color: Colors.white,
                 letterSpacing: 1.5,

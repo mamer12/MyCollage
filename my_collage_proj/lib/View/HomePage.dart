@@ -29,6 +29,7 @@ class _WelcomeUserWidgetState extends State<WelcomeUserWidget> {
         },
         child: Scaffold(
           appBar: AppBar(
+            title: Text('اهلا بك'),
             backgroundColor: Color(0xFF17223b),
             elevation: 0,
             centerTitle: false,
@@ -145,13 +146,12 @@ class _WelcomeUserWidgetState extends State<WelcomeUserWidget> {
               )),
             ],
           )),
-          body: GridView(
-              gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-                maxCrossAxisExtent: 200,
-                childAspectRatio: 7 / 8,
-                mainAxisSpacing: 10,
-                crossAxisSpacing: 10,
-              ),
+          body: GridView.count(
+              childAspectRatio: 1.0,
+              padding: EdgeInsets.only(left: 16, right: 16),
+              crossAxisCount: 2,
+              crossAxisSpacing: 18,
+              mainAxisSpacing: 18,
               children: page_Data
                   .map((homeData) => DataName(homeData.imgUrl, homeData.title))
                   .toList()),

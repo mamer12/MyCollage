@@ -34,7 +34,7 @@ class _WelcomePageState extends State<WelcomePage> {
   );
   Widget _indicator(bool isActive) {
     return AnimatedContainer(
-      duration: Duration(milliseconds: 150),
+      duration: Duration(milliseconds: 250),
       margin: EdgeInsets.symmetric(horizontal: 8.0),
       height: 8.0,
       width: isActive ? 24.0 : 16.0,
@@ -95,7 +95,7 @@ class _WelcomePageState extends State<WelcomePage> {
                             SizedBox(height: 30.0),
                             Text(
                               'تابع جميع الجامعات الاهلية في العراق',
-                              style: kTitleStyle,
+                              style: Theme.of(context).textTheme.headline5,
                             ),
                             SizedBox(height: 15.0),
                             Text(
@@ -165,7 +165,7 @@ class _WelcomePageState extends State<WelcomePage> {
                 _currentPage != _numPages - 1
                     ? Expanded(
                         child: Align(
-                          alignment: FractionalOffset.bottomRight,
+                          alignment: FractionalOffset.bottomLeft,
                           child: FlatButton(
                             onPressed: () {
                               _pageController.nextPage(
@@ -178,7 +178,7 @@ class _WelcomePageState extends State<WelcomePage> {
                               mainAxisSize: MainAxisSize.min,
                               children: <Widget>[
                                 Text(
-                                  'Next',
+                                  'التالي',
                                   style: TextStyle(
                                     color: Colors.white,
                                     fontSize: 22.0,
