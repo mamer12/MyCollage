@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 
 class DataName extends StatelessWidget {
   final String title;
@@ -8,37 +9,17 @@ class DataName extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var color = 0xff453658;
-    return Container(
-      decoration: BoxDecoration(
-          color: Color(color), borderRadius: BorderRadius.circular(10)),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          Image.network(
-            imgUrl,
-            width: 42,
-          ),
-          SizedBox(
-            height: 14,
-          ),
-          Text(
+    return Stack(
+      children: [
+        Image.network(imgUrl),
+        Container(
+          padding: EdgeInsets.all(8.0),
+          alignment: Alignment.center,
+          child: Text(
             title,
           ),
-          SizedBox(
-            height: 8,
-          ),
-          Text(
-            title,
-          ),
-          SizedBox(
-            height: 14,
-          ),
-          Text(
-            title,
-          ),
-        ],
-      ),
+        )
+      ],
     );
   }
 }

@@ -5,30 +5,30 @@ const page_Data = const [
       id: '1',
       title: 'جميع الجامعات',
       imgUrl:
-          'https://images.pexels.com/photos/462118/pexels-photo-462118.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'),
+          'http://www.google.de/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png'),
   HomeData(
       id: '2',
       title: 'الجامعات الاكثر انتشار',
       imgUrl:
-          'https://images.pexels.com/photos/462118/pexels-photo-462118.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'),
+          'http://www.google.de/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png'),
   HomeData(
       id: '3',
       title: 'ترتيب حسب المحافظة',
       imgUrl:
-          'https://images.pexels.com/photos/462118/pexels-photo-462118.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'),
+          'http://www.google.de/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png'),
   HomeData(
       id: '4',
       title: 'التخصص',
       imgUrl:
-          'https://images.pexels.com/photos/462118/pexels-photo-462118.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'),
+          'http://www.google.de/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png'),
   HomeData(
       id: '4',
       title: 'التخصص',
       imgUrl:
-          'https://images.pexels.com/photos/462118/pexels-photo-462118.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'),
+          'http://www.google.de/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png'),
   HomeData(
       id: '4',
       title: 'التخصص',
       imgUrl:
-          'https://images.pexels.com/photos/462118/pexels-photo-462118.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'),
+          'http://www.google.de/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png'),
 ];
