@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:flutter/widgets.dart';
-import 'package:my_collage_proj/widgets/homePageitem.dart';
 import 'package:my_collage_proj/app_Data.dart';
+import 'package:my_collage_proj/widgets/homePageitem.dart';
 
 // ignore: must_be_immutable
 class WelcomeUserWidget extends StatefulWidget {
@@ -146,15 +146,19 @@ class _WelcomeUserWidgetState extends State<WelcomeUserWidget> {
               )),
             ],
           )),
-          body: GridView.count(
-              childAspectRatio: 1.0,
-              padding: EdgeInsets.only(left: 16, right: 16),
-              crossAxisCount: 2,
-              crossAxisSpacing: 18,
-              mainAxisSpacing: 18,
-              children: page_Data
-                  .map((homeData) => DataName(homeData.imgUrl, homeData.title))
-                  .toList()),
+          body: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: GridView(
+                gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+                    childAspectRatio: 7.5 / 8,
+                    crossAxisSpacing: 10,
+                    maxCrossAxisExtent: 200,
+                    mainAxisSpacing: 10),
+                children: page_Data
+                    .map(
+                        (homeData) => DataName(homeData.title, homeData.imgUrl))
+                    .toList()),
+          ),
         ));
   }
 }

@@ -86,8 +86,8 @@ class _WelcomePageState extends State<WelcomePage> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
                             Center(
-                              child: Image.network(
-                                "https://img.freepik.com/free-vector/focused-people-studying-online-school_74855-5834.jpg?size=626&ext=jpg",
+                              child: Image.asset(
+                                "assets/images/second.png",
                                 height: 300.0,
                                 width: 300.0,
                               ),
@@ -111,20 +111,20 @@ class _WelcomePageState extends State<WelcomePage> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
                             Center(
-                              child: Image.network(
-                                "https://png.pngtree.com/png-vector/20200518/ourlarge/pngtree-boys-study-at-the-online-study-desk-png-image_2207832.jpg",
+                              child: Image.asset(
+                                "assets/images/third.png",
                                 height: 300.0,
                                 width: 300.0,
                               ),
                             ),
                             SizedBox(height: 30.0),
                             Text(
-                              'Live your life smarter\nwith us!',
+                              'مع تطبيق كليتي ',
                               style: kTitleStyle,
                             ),
                             SizedBox(height: 15.0),
                             Text(
-                              'Lorem ipsum dolor sit amet, consect adipiscing elit, sed do eiusmod tempor incididunt ut labore et.',
+                              'صار بأمكانك تبحث عن جميع الجامعات والكليات العرافيه وانت ببيتك فقط !',
                               style: kSubtitleStyle,
                             ),
                           ],
@@ -136,20 +136,20 @@ class _WelcomePageState extends State<WelcomePage> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
                             Center(
-                              child: Image.network(
-                                "https://i.pinimg.com/736x/64/ca/97/64ca9779470792fb64f54843ee042a43.jpg",
+                              child: Image.asset(
+                                "assets/images/first.png",
                                 height: 300.0,
                                 width: 300.0,
                               ),
                             ),
                             SizedBox(height: 30.0),
                             Text(
-                              'Get a new experience\nof imagination',
+                              'تطبيق كليتي يتيحلك جميع الامكانيات',
                               style: kTitleStyle,
                             ),
                             SizedBox(height: 15.0),
                             Text(
-                              'Lorem ipsum dolor sit amet, consect adipiscing elit, sed do eiusmod tempor incididunt ut labore et.',
+                              'اضف جميع الجامعات الى المفضلة وتابع اخر الاخبار عن الجامعة واساتذتها !',
                               style: kSubtitleStyle,
                             ),
                           ],
@@ -217,7 +217,7 @@ class _WelcomePageState extends State<WelcomePage> {
                   child: Padding(
                     padding: EdgeInsets.only(bottom: 30.0),
                     child: Text(
-                      'Get started',
+                      'ابدأ الان',
                       style: TextStyle(
                         color: Color(0xFFef4f4f),
                         fontSize: 20.0,

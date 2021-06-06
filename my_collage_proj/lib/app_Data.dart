@@ -4,31 +4,19 @@ const page_Data = const [
   HomeData(
       id: '1',
       title: 'جميع الجامعات',
-      imgUrl:
-          'http://www.google.de/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png'),
+      imgUrl: 'https://i.stack.imgur.com/gSbND.png'),
   HomeData(
       id: '2',
       title: 'الجامعات الاكثر انتشار',
-      imgUrl:
-          'http://www.google.de/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png'),
+      imgUrl: 'https://i.stack.imgur.com/gSbND.png'),
   HomeData(
       id: '3',
       title: 'ترتيب حسب المحافظة',
-      imgUrl:
-          'http://www.google.de/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png'),
+      imgUrl: 'https://i.stack.imgur.com/gSbND.png'),
   HomeData(
-      id: '4',
-      title: 'التخصص',
-      imgUrl:
-          'http://www.google.de/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png'),
+      id: '4', title: 'التخصص', imgUrl: 'https://i.stack.imgur.com/gSbND.png'),
   HomeData(
-      id: '4',
-      title: 'التخصص',
-      imgUrl:
-          'http://www.google.de/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png'),
+      id: '5', title: 'التخصص', imgUrl: 'https://i.stack.imgur.com/gSbND.png'),
   HomeData(
-      id: '4',
-      title: 'التخصص',
-      imgUrl:
-          'http://www.google.de/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png'),
+      id: '6', title: 'التخصص', imgUrl: 'https://i.stack.imgur.com/gSbND.png'),
 ];
