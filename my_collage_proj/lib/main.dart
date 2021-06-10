@@ -38,6 +38,7 @@ class MyApp extends StatelessWidget {
                   fontFamily: 'Tajawal',
                   fontWeight: FontWeight.normal))),
       home: WelcomePage(),
+      routes: {},
     );
   }
 }

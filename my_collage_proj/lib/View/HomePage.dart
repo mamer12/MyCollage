@@ -155,8 +155,8 @@ class _WelcomeUserWidgetState extends State<WelcomeUserWidget> {
                     maxCrossAxisExtent: 200,
                     mainAxisSpacing: 10),
                 children: page_Data
-                    .map(
-                        (homeData) => DataName(homeData.title, homeData.imgUrl))
+                    .map((homeData) =>
+                        DataName(homeData.title, homeData.imgUrl, homeData.id))
                     .toList()),
           ),
         ));

@@ -19,4 +19,5 @@ const page_Data = const [
       id: '5', title: 'التخصص', imgUrl: 'https://i.stack.imgur.com/gSbND.png'),
   HomeData(
       id: '6', title: 'التخصص', imgUrl: 'https://i.stack.imgur.com/gSbND.png'),
+  HomeData(),
 ];
