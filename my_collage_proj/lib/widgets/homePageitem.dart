@@ -10,7 +10,7 @@ class DataName extends StatelessWidget {
   DataName(this.title, this.imgUrl, this.id);
   // ignore: non_constant_identifier_names
   void SelectUniversty(BuildContext ctx) {
-    Navigator.of(ctx).pushNamed('universtyList-screen',
+    Navigator.of(ctx).pushNamed(UniverstiesPage.uniPage,
         arguments: {'id': id, 'title': title});
   }
 

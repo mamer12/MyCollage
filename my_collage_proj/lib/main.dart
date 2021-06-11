@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:my_collage_proj/welcomePage.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
+import 'View/universtiesScreen.dart';
+
 void main() {
   runApp(MyApp());
 }
@@ -37,8 +39,10 @@ class MyApp extends StatelessWidget {
                   fontSize: 26,
                   fontFamily: 'Tajawal',
                   fontWeight: FontWeight.normal))),
-      home: WelcomePage(),
-      routes: {},
+      routes: {
+        '/': (ctx) => WelcomePage(),
+        UniverstiesPage.uniPage: (ctx) => UniverstiesPage()
+      },
     );
   }
 }

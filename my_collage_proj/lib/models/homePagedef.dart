@@ -4,7 +4,10 @@ class HomeData {
   final String id;
   final String title;
   final String imgUrl;
-  final String uniName;
+  final List<String> provinces;
   const HomeData(
-      {@required this.id, @required this.title, this.imgUrl, this.uniName});
+      {@required this.id,
+      @required this.title,
+      @required this.imgUrl,
+      this.provinces});
 }
