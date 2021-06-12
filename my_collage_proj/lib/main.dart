@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_collage_proj/welcomePage.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-
+import 'View/unidetal.dart';
 import 'View/universtiesScreen.dart';
 
 void main() {
@@ -41,7 +41,8 @@ class MyApp extends StatelessWidget {
                   fontWeight: FontWeight.normal))),
       routes: {
         '/': (ctx) => WelcomePage(),
-        UniverstiesPage.uniPage: (ctx) => UniverstiesPage()
+        UniverstiesPage.uniPage: (ctx) => UniverstiesPage(),
+        Unidetal.uniDetalRoute: (ctx) => Unidetal()
       },
     );
   }

@@ -22,9 +22,12 @@ class UniverstiesPage extends StatelessWidget {
       body: ListView.builder(
         itemBuilder: (context, index) {
           return UniList(
+            id: fliteruni[index].id,
             title: fliteruni[index].title,
             image: fliteruni[index].image,
             rating: fliteruni[index].rating,
+            provinces: fliteruni[index].provinces,
+            yearPub: fliteruni[index].yearPub,
           );
         },
         itemCount: fliteruni.length,
