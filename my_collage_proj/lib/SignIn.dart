@@ -143,7 +143,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
   void onGoogleSignIn(BuildContext context) async {
     User user = await _handleSignIn();
-    var userSignedIn = await Navigator.push(
+    var userSignedIn = await Navigator.pushReplacement(
       context,
       MaterialPageRoute(
           builder: (context) => WelcomeUserWidget(user, _googleSignIn)),

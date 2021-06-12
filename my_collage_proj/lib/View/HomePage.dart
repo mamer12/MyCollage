@@ -4,6 +4,7 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:flutter/widgets.dart';
 import 'package:my_collage_proj/app_Data.dart';
 import 'package:my_collage_proj/widgets/homePageitem.dart';
+import 'package:my_collage_proj/widgets/slider.dart';
 
 // ignore: must_be_immutable
 class WelcomeUserWidget extends StatefulWidget {
@@ -146,18 +147,23 @@ class _WelcomeUserWidgetState extends State<WelcomeUserWidget> {
               )),
             ],
           )),
-          body: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: GridView(
-                gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-                    childAspectRatio: 7.5 / 8,
-                    crossAxisSpacing: 10,
-                    maxCrossAxisExtent: 200,
-                    mainAxisSpacing: 10),
-                children: page_Data
-                    .map((homeData) =>
-                        DataName(homeData.title, homeData.imgUrl, homeData.id))
-                    .toList()),
+          body: Column(
+            children: [
+              CarouselWithIndicator(),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: GridView(
+                    gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+                        childAspectRatio: 7.5 / 8,
+                        crossAxisSpacing: 10,
+                        maxCrossAxisExtent: 200,
+                        mainAxisSpacing: 10),
+                    children: page_Data
+                        .map((homeData) => DataName(
+                            homeData.title, homeData.imgUrl, homeData.id))
+                        .toList()),
+              ),
+            ],
           ),
         ));
   }

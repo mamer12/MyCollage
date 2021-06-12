@@ -1,5 +1,4 @@
 import 'package:flutter/cupertino.dart';
-import 'package:my_collage_proj/models/universties.dart';
 import 'package:flutter/material.dart';
 
 class UniList extends StatelessWidget {
@@ -31,6 +30,7 @@ class UniList extends StatelessWidget {
                     image,
                     fit: BoxFit.cover,
                     height: 250,
+                    width: double.infinity,
                   ),
                 )
               ],
