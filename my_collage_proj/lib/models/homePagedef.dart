@@ -5,6 +5,7 @@ class HomeData {
   final String title;
   final String imgUrl;
   final List<String> provinces;
+
   const HomeData(
       {@required this.id,
       @required this.title,

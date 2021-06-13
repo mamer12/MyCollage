@@ -1,17 +1,29 @@
 import 'package:flutter/material.dart';
+import 'package:my_collage_proj/app_Data.dart';
 
 class Unidetal extends StatelessWidget {
   static const uniDetalRoute = '/uni-detal';
   @override
   Widget build(BuildContext context) {
     final uniId = ModalRoute.of(context).settings.arguments as String;
+    final selectdeUni =
+        Universty_data.firstWhere((universty) => universty.id == uniId);
     return Scaffold(
       body: Stack(
         children: <Widget>[
+          Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: IconButton(
+              icon: new Icon(Icons.arrow_back),
+              iconSize: 50,
+              color: Colors.black,
+              onPressed: () => Navigator.pop(context),
+            ),
+          ),
           SizedBox.expand(
-            child: Image.asset(
-              "assets/user.jpg",
-              fit: BoxFit.cover,
+            child: Image.network(
+              selectdeUni.image,
+              fit: BoxFit.contain,
             ),
           ),
           DraggableScrollableSheet(
@@ -38,8 +50,8 @@ class Unidetal extends StatelessWidget {
                                 height: 100,
                                 width: 100,
                                 child: ClipOval(
-                                  child: Image.asset(
-                                    'assets/user.jpg',
+                                  child: Image.network(
+                                    '${selectdeUni.deanImage}',
                                     fit: BoxFit.cover,
                                   ),
                                 )),
@@ -51,29 +63,22 @@ class Unidetal extends StatelessWidget {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: <Widget>[
                                   Text(
-                                    "John Doe",
+                                    '${selectdeUni.title}',
                                     style: TextStyle(
                                         color: Colors.grey[800],
-                                        fontFamily: "Roboto",
                                         fontSize: 36,
                                         fontWeight: FontWeight.w700),
                                   ),
                                   Text(
-                                    "Mobile Application Developer",
+                                    selectdeUni.deanName,
                                     style: TextStyle(
                                         color: Colors.grey[500],
-                                        fontFamily: "Roboto",
                                         fontSize: 16,
                                         fontWeight: FontWeight.w400),
                                   ),
                                 ],
                               ),
                             ),
-                            Icon(
-                              Icons.sms,
-                              color: Colors.blue,
-                              size: 40,
-                            )
                           ],
                         ),
                       ),
@@ -201,22 +206,26 @@ class Unidetal extends StatelessWidget {
                         padding: EdgeInsets.only(left: 32, right: 32),
                         child: Column(
                           children: <Widget>[
-                            Text(
-                              "About Me",
-                              style: TextStyle(
-                                  color: Colors.grey[800],
-                                  fontWeight: FontWeight.w700,
-                                  fontFamily: "Roboto",
-                                  fontSize: 18),
+                            Container(
+                              alignment: Alignment.center,
+                              child: Text(
+                                "عن الكلية",
+                                style: TextStyle(
+                                    color: Colors.grey[800],
+                                    fontWeight: FontWeight.w700,
+                                    fontFamily: "Roboto",
+                                    fontSize: 18),
+                              ),
                             ),
                             SizedBox(
                               height: 8,
                             ),
                             Text(
-                              "Hello, this is maaz, and I am from easy approach, and this is just a demo text for information about me"
-                              "Hello, this is maaz, and I am from easy approach, and this is just a demo text for information about me",
-                              style:
-                                  TextStyle(fontFamily: "Roboto", fontSize: 15),
+                              '${selectdeUni.description}',
+                              style: TextStyle(
+                                fontFamily: "Roboto",
+                                fontSize: 15,
+                              ),
                             ),
                           ],
                         ),
@@ -232,11 +241,10 @@ class Unidetal extends StatelessWidget {
                         child: Column(
                           children: <Widget>[
                             Text(
-                              "Clients",
+                              "التدريسيين",
                               style: TextStyle(
                                   color: Colors.grey[800],
                                   fontWeight: FontWeight.w700,
-                                  fontFamily: "Roboto",
                                   fontSize: 18),
                             ),
 
@@ -254,14 +262,14 @@ class Unidetal extends StatelessWidget {
                                     height: 80,
                                     margin: EdgeInsets.only(right: 8),
                                     child: ClipOval(
-                                      child: Image.asset(
-                                        "assets/${index + 1}.jpg",
+                                      child: Image.network(
+                                        selectdeUni.teachersImage[index],
                                         fit: BoxFit.cover,
                                       ),
                                     ),
                                   );
                                 },
-                                itemCount: 5,
+                                itemCount: selectdeUni.teachersImage.length,
                                 scrollDirection: Axis.horizontal,
                                 shrinkWrap: true,
                               ),
