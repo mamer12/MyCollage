@@ -40,7 +40,7 @@ const page_Data = const [
 const Universty_data = const [
   Universty(
       id: "B1",
-      category: ['A1', 'A2'],
+      category: ['A1', 'A2', 'A3'],
       title: 'الرافدين',
       yearPub: '1988',
       provinces: 'بغداد',

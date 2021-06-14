@@ -88,8 +88,8 @@ class _WelcomePageState extends State<WelcomePage> {
                             Center(
                               child: Image.asset(
                                 "assets/images/second.png",
-                                height: 300.0,
-                                width: 300.0,
+                                height: MediaQuery.of(context).size.height / 4,
+                                width: MediaQuery.of(context).size.width / 0.2,
                               ),
                             ),
                             SizedBox(height: 30.0),
@@ -113,8 +113,8 @@ class _WelcomePageState extends State<WelcomePage> {
                             Center(
                               child: Image.asset(
                                 "assets/images/third.png",
-                                height: 300.0,
-                                width: 300.0,
+                                height: MediaQuery.of(context).size.height / 4,
+                                width: MediaQuery.of(context).size.width / 0.2,
                               ),
                             ),
                             SizedBox(height: 30.0),
@@ -138,11 +138,11 @@ class _WelcomePageState extends State<WelcomePage> {
                             Center(
                               child: Image.asset(
                                 "assets/images/first.png",
-                                height: 300.0,
-                                width: 300.0,
+                                height: MediaQuery.of(context).size.height / 4,
+                                width: MediaQuery.of(context).size.width / 0.2,
                               ),
                             ),
-                            SizedBox(height: 30.0),
+                            SizedBox(height: 50.0),
                             Text(
                               'تطبيق كليتي يتيحلك جميع الامكانيات',
                               style: kTitleStyle,

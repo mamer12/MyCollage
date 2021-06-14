@@ -8,18 +8,10 @@ class Unidetal extends StatelessWidget {
     final uniId = ModalRoute.of(context).settings.arguments as String;
     final selectdeUni =
         Universty_data.firstWhere((universty) => universty.id == uniId);
+
     return Scaffold(
       body: Stack(
         children: <Widget>[
-          Padding(
-            padding: const EdgeInsets.all(20.0),
-            child: IconButton(
-              icon: new Icon(Icons.arrow_back),
-              iconSize: 50,
-              color: Colors.black,
-              onPressed: () => Navigator.pop(context),
-            ),
-          ),
           SizedBox.expand(
             child: Image.network(
               selectdeUni.image,
@@ -362,7 +354,18 @@ class Unidetal extends StatelessWidget {
                 ),
               );
             },
-          )
+          ),
+          Padding(
+            padding: const EdgeInsets.only(top: 40, right: 20),
+            child: IconButton(
+              icon: new Icon(Icons.arrow_back),
+              iconSize: 30,
+              color: Colors.black,
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ),
         ],
       ),
     );

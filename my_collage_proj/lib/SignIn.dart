@@ -59,57 +59,6 @@ class _LoginScreenState extends State<LoginScreen> {
     ],
   );
 
-  Widget _buildLoginBtn() {
-    return Center(
-      child: Column(children: [
-        Container(
-          padding: EdgeInsets.symmetric(vertical: 20.0),
-          width: double.infinity,
-          child: OutlineButton(
-            onPressed: () => onGoogleSignIn(context),
-            padding: EdgeInsets.all(15.0),
-            shape: StadiumBorder(),
-            textColor: Colors.white,
-            borderSide: BorderSide(
-                color: Colors.white, style: BorderStyle.solid, width: 4),
-            child: Text(
-              'المتابعة بأستخدام حساب جوجل',
-              style: TextStyle(
-                color: Colors.white,
-                letterSpacing: 1.5,
-                fontSize: 18.0,
-                fontWeight: FontWeight.bold,
-                fontFamily: 'OpenSans',
-              ),
-            ),
-          ),
-        ),
-        Container(
-          padding: EdgeInsets.symmetric(vertical: 20.0),
-          width: double.infinity,
-          child: OutlineButton(
-            onPressed: () => onGoogleSignIn(context),
-            padding: EdgeInsets.all(15.0),
-            shape: StadiumBorder(),
-            textColor: Colors.white,
-            borderSide: BorderSide(
-                color: Colors.white, style: BorderStyle.solid, width: 4),
-            child: Text(
-              'LOGIN WITH Google',
-              style: TextStyle(
-                color: Colors.white,
-                letterSpacing: 1.5,
-                fontSize: 18.0,
-                fontWeight: FontWeight.bold,
-                fontFamily: 'OpenSans',
-              ),
-            ),
-          ),
-        )
-      ]),
-    );
-  }
-
   Future<User> _handleSignIn() async {
     User user;
     bool userSignedIn = await _googleSignIn.isSignedIn();
@@ -191,16 +140,40 @@ class _LoginScreenState extends State<LoginScreen> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
-                      Text(
-                        'Sign In',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontFamily: 'OpenSans',
-                          fontSize: 30.0,
-                          fontWeight: FontWeight.bold,
-                        ),
+                      Image.network(
+                        'https://imager-x.spacecat.ninja/imager-x-poster.png',
+                        height: 200,
+                        width: double.infinity,
                       ),
-                      _buildLoginBtn(),
+                      // _buildLoginBtn(),
+                      SizedBox(
+                        height: 200,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          GestureDetector(
+                            onTap: () {
+                              onGoogleSignIn(context);
+                            },
+                            child: Image.network(
+                              'https://imager-x.spacecat.ninja/imager-x-poster.png',
+                              height: 50,
+                              width: 50,
+                            ),
+                          ),
+                          GestureDetector(
+                            onTap: () {
+                              onGoogleSignIn(context);
+                            },
+                            child: Image.network(
+                              'https://imager-x.spacecat.ninja/imager-x-poster.png',
+                              height: 50,
+                              width: 50,
+                            ),
+                          ),
+                        ],
+                      )
                     ],
                   ),
                 ),

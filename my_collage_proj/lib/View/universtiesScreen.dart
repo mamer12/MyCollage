@@ -1,9 +1,18 @@
 import 'package:flutter/material.dart';
+
 import 'package:my_collage_proj/app_Data.dart';
 import 'package:my_collage_proj/widgets/unversties_list.dart';
 
-class UniverstiesPage extends StatelessWidget {
+class UniverstiesPage extends StatefulWidget {
   static const uniPage = '/universtyList-screen';
+
+  @override
+  _UniverstiesPageState createState() => _UniverstiesPageState();
+}
+
+class _UniverstiesPageState extends State<UniverstiesPage> {
+  Map<String, dynamic> jsonData = {};
+
   @override
   Widget build(BuildContext context) {
     final routeNamed =
