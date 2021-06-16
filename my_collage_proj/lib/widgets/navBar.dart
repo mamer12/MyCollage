@@ -1,87 +1,120 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_snake_navigationbar/flutter_snake_navigationbar.dart';
 
-class SnakeNav extends StatefulWidget {
+class BottomNavBarV2 extends StatefulWidget {
   @override
-  _SnakeNavState createState() => _SnakeNavState();
+  _BottomNavBarV2State createState() => _BottomNavBarV2State();
 }
 
-class _SnakeNavState extends State<SnakeNav> {
-  @override
-  Widget build(BuildContext context) {
-    return BottomNavigationBar();
+class _BottomNavBarV2State extends State<BottomNavBarV2> {
+  int currentIndex = 0;
+
+  setBottomBarIndex(index) {
+    setState(() {
+      currentIndex = index;
+    });
   }
 
-  // ignore: non_constant_identifier_names
-  // Widget SnankeBar() {
-  //   return PageView(
-  //         onPageChanged: _onPageChanged,
-  //         children: <Widget>[
-  //           PagerPageWidget(
-  //             text: 'This is our beloved SnakeBar.',
-  //             description: 'Swipe right to see different styles',
-  //             image: Image.asset('images/flutter1.png'),
-  //           ),
-  //           PagerPageWidget(
-  //             text: 'It comes in all shapes and sizes...',
-  //             description:
-  //                 'Change indicator and bottom bar shape at your will.',
-  //             image: Image.asset('images/flutter2.png'),
-  //           ),
-  //           PagerPageWidget(
-  //             text: '...not only the ones you see here',
-  //             description:
-  //                 'Combine different shapes for unique and personalized style!.',
-  //             image: Image.asset('images/flutter3.png'),
-  //           ),
-  //           PagerPageWidget(
-  //             text: 'And it\'s all open source!',
-  //             description:
-  //                 'Get the Flutter library on github.com/herodotdigital',
-  //             image: Image.asset('images/flutter4.png'),
-  //           ),
-  //         ],
-  //       ),
-  //     ),
-  //     bottomNavigationBar: SnakeNavigationBar.color(
-  //       // height: 80,
-  //       behaviour: snakeBarStyle,
-  //       snakeShape: snakeShape,
-  //       shape: bottomBarShape,
-  //       padding: padding,
+  @override
+  Widget build(BuildContext context) {
+    final Size size = MediaQuery.of(context).size;
+    return Stack(
+      children: [
+        Container(
+          width: size.width,
+          height: 80,
+          child: Stack(
+            overflow: Overflow.visible,
+            children: [
+              CustomPaint(
+                size: Size(size.width, 80),
+                painter: BNBCustomPainter(),
+              ),
+              Center(
+                heightFactor: 0.6,
+                child: FloatingActionButton(
+                    backgroundColor: Colors.blue,
+                    child: Icon(Icons.shopping_basket),
+                    elevation: 0.1,
+                    onPressed: () {}),
+              ),
+              Container(
+                width: size.width,
+                height: 80,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    IconButton(
+                      icon: Icon(
+                        Icons.home,
+                        color: currentIndex == 0
+                            ? Colors.orange
+                            : Colors.grey.shade400,
+                      ),
+                      onPressed: () {},
+                      splashColor: Colors.white,
+                    ),
+                    IconButton(
+                        icon: Icon(
+                          Icons.restaurant_menu,
+                          color: currentIndex == 1
+                              ? Colors.orange
+                              : Colors.grey.shade400,
+                        ),
+                        onPressed: () {}),
+                    Container(
+                      width: size.width * 0.20,
+                    ),
+                    IconButton(
+                        icon: Icon(
+                          Icons.bookmark,
+                          color: currentIndex == 2
+                              ? Colors.orange
+                              : Colors.grey.shade400,
+                        ),
+                        onPressed: () {}),
+                    IconButton(
+                        icon: Icon(
+                          Icons.notifications,
+                          color: currentIndex == 3
+                              ? Colors.orange
+                              : Colors.grey.shade400,
+                        ),
+                        onPressed: () {}),
+                  ],
+                ),
+              )
+            ],
+          ),
+        )
+      ],
+    );
+  }
+}
 
-  //       ///configuration for SnakeNavigationBar.color
-  //       snakeViewColor: selectedColor,
-  //       selectedItemColor:
-  //           snakeShape == SnakeShape.indicator ? selectedColor : null,
-  //       unselectedItemColor: Colors.blueGrey,
+class BNBCustomPainter extends CustomPainter {
+  @override
+  void paint(Canvas canvas, Size size) {
+    Paint paint = new Paint()
+      ..color = Colors.white
+      ..style = PaintingStyle.fill;
 
-  //       ///configuration for SnakeNavigationBar.gradient
-  //       // snakeViewGradient: selectedGradient,
-  //       // selectedItemGradient: snakeShape == SnakeShape.indicator ? selectedGradient : null,
-  //       // unselectedItemGradient: unselectedGradient,
+    Path path = Path();
+    path.moveTo(0, 20); // Start
+    path.quadraticBezierTo(size.width * 0.20, 0, size.width * 0.35, 0);
+    path.quadraticBezierTo(size.width * 0.40, 0, size.width * 0.40, 20);
+    path.arcToPoint(Offset(size.width * 0.60, 20),
+        radius: Radius.circular(20.0), clockwise: false);
+    path.quadraticBezierTo(size.width * 0.60, 0, size.width * 0.65, 0);
+    path.quadraticBezierTo(size.width * 0.80, 0, size.width, 20);
+    path.lineTo(size.width, size.height);
+    path.lineTo(0, size.height);
+    path.lineTo(0, 20);
+    canvas.drawShadow(path, Colors.black, 5, true);
+    canvas.drawPath(path, paint);
+  }
 
-  //       showUnselectedLabels: showUnselectedLabels,
-  //       showSelectedLabels: showSelectedLabels,
-
-  //       currentIndex: _selectedItemPosition,
-  //       onTap: (index) => setState(() => _selectedItemPosition = index),
-  //       items: [
-  //         const BottomNavigationBarItem(
-  //             icon: Icon(Icons.notifications), label: 'tickets'),
-  //         const BottomNavigationBarItem(
-  //             icon: Icon(CustomIcons.calendar), label: 'calendar'),
-  //         const BottomNavigationBarItem(
-  //             icon: Icon(CustomIcons.home), label: 'home'),
-  //         const BottomNavigationBarItem(
-  //             icon: Icon(CustomIcons.podcasts), label: 'microphone'),
-  //         const BottomNavigationBarItem(
-  //             icon: Icon(CustomIcons.search), label: 'search')
-  //       ],
-  //       selectedLabelStyle: const TextStyle(fontSize: 14),
-  //       unselectedLabelStyle: const TextStyle(fontSize: 10),
-  //     ),
-  //   );
-  // }
+  @override
+  bool shouldRepaint(CustomPainter oldDelegate) {
+    return false;
+  }
 }

@@ -5,6 +5,7 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:flutter/widgets.dart';
 import 'package:my_collage_proj/app_Data.dart';
 import 'package:my_collage_proj/widgets/homePageitem.dart';
+import 'package:my_collage_proj/widgets/navBar.dart';
 
 import '../SignIn.dart';
 
@@ -62,7 +63,7 @@ class _WelcomeUserWidgetState extends State<WelcomeUserWidget> {
                     ))),
           ],
         ),
-        // bottomNavigationBar: MyHomePage(),
+        bottomNavigationBar: BottomNavBarV2(),
         body: Stack(
           children: [
             GFCarousel(
@@ -91,13 +92,15 @@ class _WelcomeUserWidgetState extends State<WelcomeUserWidget> {
               },
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 210.0, right: 20),
-              child: Text(
-                'التصنيفات',
-                style: Theme.of(context).textTheme.headline5,
-                textAlign: TextAlign.right,
-              ),
-            ),
+                padding: const EdgeInsets.only(top: 210.0, right: 20),
+                child: Text(
+                  'التصنيفات',
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontFamily: 'Tajawal',
+                    fontSize: 22.0,
+                  ),
+                )),
             Padding(
               padding: const EdgeInsets.only(top: 250.0, left: 10, right: 10),
               child: GridView(

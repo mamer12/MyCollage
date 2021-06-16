@@ -55,12 +55,9 @@ class _WelcomePageState extends State<WelcomePage> {
             gradient: LinearGradient(
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
-              stops: [0.1, 0.4, 0.7, 0.9],
               colors: [
-                Color(0xFF17223b),
-                Color(0xFF17223b),
-                Color(0xFF263859),
-                Color(0xFF263859),
+                Color(0xFF43cea2),
+                Color(0xFF185a9d),
               ],
             ),
           ),
@@ -106,11 +103,11 @@ class _WelcomePageState extends State<WelcomePage> {
                             Center(
                               child: Image.asset(
                                 "assets/images/second.png",
-                                height: MediaQuery.of(context).size.height / 4,
-                                width: MediaQuery.of(context).size.width / 0.2,
+                                height: 300.0,
+                                width: 300.0,
                               ),
                             ),
-                            SizedBox(height: 30.0),
+                            SizedBox(height: 80.0),
                             Text(
                               'تابع جميع الجامعات الاهلية في العراق',
                               style: Theme.of(context).textTheme.headline5,
@@ -131,11 +128,11 @@ class _WelcomePageState extends State<WelcomePage> {
                             Center(
                               child: Image.asset(
                                 "assets/images/third.png",
-                                height: MediaQuery.of(context).size.height / 4,
-                                width: MediaQuery.of(context).size.width / 0.2,
+                                height: 300.0,
+                                width: 300.0,
                               ),
                             ),
-                            SizedBox(height: 30.0),
+                            SizedBox(height: 80.0),
                             Text(
                               'مع تطبيق كليتي ',
                               style: kTitleStyle,
@@ -156,13 +153,13 @@ class _WelcomePageState extends State<WelcomePage> {
                             Center(
                               child: Image.asset(
                                 "assets/images/first.png",
-                                height: MediaQuery.of(context).size.height / 4,
-                                width: MediaQuery.of(context).size.width / 0.2,
+                                height: 300.0,
+                                width: 300.0,
                               ),
                             ),
                             SizedBox(height: 50.0),
                             Text(
-                              'تطبيق كليتي يتيحلك جميع الامكانيات',
+                              'تطبيق كليتي يتيح لك جميع الامكانيات',
                               style: kTitleStyle,
                             ),
                             SizedBox(height: 15.0),
@@ -237,7 +234,9 @@ class _WelcomePageState extends State<WelcomePage> {
                     child: Text(
                       'ابدأ الان',
                       style: TextStyle(
-                        color: Color(0xFFef4f4f),
+                        color: Color(
+                          (0xFF3594DD),
+                        ),
                         fontSize: 20.0,
                         fontWeight: FontWeight.bold,
                       ),

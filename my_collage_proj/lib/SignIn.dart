@@ -132,12 +132,9 @@ class _LoginScreenState extends State<LoginScreen> {
                     begin: Alignment.topCenter,
                     end: Alignment.bottomCenter,
                     colors: [
-                      Color(0xFF17223b),
-                      Color(0xFF17223b),
-                      Color(0xFF263859),
-                      Color(0xFF263859),
+                      Color(0xFF43cea2),
+                      Color(0xFF185a9d),
                     ],
-                    stops: [0.1, 0.4, 0.7, 0.9],
                   ),
                 ),
               ),
@@ -152,14 +149,27 @@ class _LoginScreenState extends State<LoginScreen> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
-                      Image.network(
-                        'https://imager-x.spacecat.ninja/imager-x-poster.png',
-                        height: 200,
-                        width: double.infinity,
+                      Image.asset(
+                        'assets/images/logo.png',
+                        height: 300,
+                        width: 300,
                       ),
-                      // _buildLoginBtn(),
                       SizedBox(
-                        height: 200,
+                        height: 50,
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 30),
+                        child: Text(
+                          'تسجيل الدخول بأستخدام',
+                          style: TextStyle(
+                            fontFamily: 'Tajawal',
+                            color: Colors.white,
+                            fontSize: 22.0,
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        height: 20,
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -171,10 +181,16 @@ class _LoginScreenState extends State<LoginScreen> {
                               child: ClipOval(
                                 child: Image.network(
                                   'https://i.pinimg.com/originals/45/20/dd/4520ddfc56208707045c56232e946f7f.jpg',
-                                  fit: BoxFit.cover,
-                                  height: 50,
+                                  fit: BoxFit.fill,
+                                  height: 60,
                                 ),
                               )),
+                          VerticalDivider(
+                            thickness: 20,
+                            color: Colors.white,
+                            endIndent: 20,
+                            width: 20,
+                          ),
                           GestureDetector(
                               onTap: () {
                                 _login();
@@ -187,29 +203,27 @@ class _LoginScreenState extends State<LoginScreen> {
                                   borderRadius: BorderRadius.circular(100),
                                   child: Image.network(
                                     'https://logowik.com/content/uploads/images/new-facebook-logo-2019.jpg',
-                                    fit: BoxFit.cover,
+                                    fit: BoxFit.fill,
                                     height: 50,
                                   ),
                                 ),
                               )),
                         ],
                       ),
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: FlatButton(
-                          onPressed: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => WelcomeUserWidget()));
-                          },
-                          child: Text(
-                            'تخطي',
-                            style: TextStyle(
+                      FlatButton(
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => WelcomeUserWidget()));
+                        },
+                        child: Text(
+                          'تخطي',
+                          style: TextStyle(
+                              fontFamily: 'Tajawal',
                               color: Colors.white,
                               fontSize: 20.0,
-                            ),
-                          ),
+                              decoration: TextDecoration.underline),
                         ),
                       ),
                     ],
