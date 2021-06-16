@@ -12,9 +12,17 @@ class Universty {
   final String deanName;
   final String deanImage;
   final int rating;
+  final List<String> sections;
+  final List<String> sectionsDescription;
+  final String researchs;
+  final String space;
 
   const Universty(
-      {@required this.deanName,
+      {@required this.space,
+      this.researchs,
+      this.sectionsDescription,
+      @required this.sections,
+      @required this.deanName,
       @required this.deanImage,
       @required this.id,
       @required this.category,

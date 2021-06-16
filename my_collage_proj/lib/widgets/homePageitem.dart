@@ -25,16 +25,15 @@ class DataName extends StatelessWidget {
           Card(
             elevation: 1,
             shadowColor: Colors.black,
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(15),
-              child: CachedNetworkImage(
-                imageUrl: imgUrl,
-                progressIndicatorBuilder: (context, url, downloadProgress) =>
-                    Center(
-                        child: CircularProgressIndicator(
-                            value: downloadProgress.progress)),
-                errorWidget: (context, url, error) => Icon(Icons.error),
-              ),
+            child: CachedNetworkImage(
+              imageUrl: imgUrl,
+              width: 200,
+              fit: BoxFit.cover,
+              progressIndicatorBuilder: (context, url, downloadProgress) =>
+                  Center(
+                      child: CircularProgressIndicator(
+                          value: downloadProgress.progress)),
+              errorWidget: (context, url, error) => Icon(Icons.error),
             ),
           ),
           Container(
@@ -42,7 +41,7 @@ class DataName extends StatelessWidget {
             alignment: Alignment.center,
             child: Text(title,
                 textAlign: TextAlign.center,
-                style: Theme.of(context).textTheme.headline5),
+                style: Theme.of(context).textTheme.headline6),
             decoration: BoxDecoration(
                 color: Colors.black.withOpacity(0.4),
                 borderRadius: BorderRadius.circular(15)),

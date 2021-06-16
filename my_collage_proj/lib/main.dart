@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
       supportedLocales: [
         const Locale('ar', ''), // English, no country code
       ],
-      title: 'MyCollage',
+      title: 'MyCollثge',
       theme: ThemeData(
           primaryColor: Color(0xFF263859),
           fontFamily: 'Tajawal',
@@ -35,7 +35,7 @@ class MyApp extends StatelessWidget {
                   fontFamily: 'Tajawal',
                   fontWeight: FontWeight.normal),
               headline6: TextStyle(
-                  color: Colors.red,
+                  color: Colors.white,
                   fontSize: 26,
                   fontFamily: 'Tajawal',
                   fontWeight: FontWeight.normal))),

@@ -4,6 +4,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:flutter/services.dart';
 import 'View/HomePage.dart';
+import 'package:flutter_facebook_login/flutter_facebook_login.dart';
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -11,6 +12,41 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  static final FacebookLogin facebookSignIn = new FacebookLogin();
+
+  Future<Null> _login() async {
+    final FacebookLoginResult result = await facebookSignIn.logIn(['email']);
+    await Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(builder: (context) => WelcomeUserWidget()),
+    );
+    switch (result.status) {
+      case FacebookLoginStatus.loggedIn:
+        final FacebookAccessToken accessToken = result.accessToken;
+        _showMessage('''
+         Logged in!
+         
+         Token: ${accessToken.token}
+         User id: ${accessToken.userId}
+         Expires: ${accessToken.expires}
+         Permissions: ${accessToken.permissions}
+         Declined permissions: ${accessToken.declinedPermissions}
+         ''');
+        break;
+      case FacebookLoginStatus.cancelledByUser:
+        _showMessage('Login cancelled by the user.');
+        break;
+      case FacebookLoginStatus.error:
+        _showMessage('Something went wrong with the login process.\n'
+            'Here\'s the error Facebook gave us: ${result.errorMessage}');
+        break;
+    }
+  }
+
+  void _showMessage(String message) {
+    setState(() {});
+  }
+
   GoogleSignIn _googleSignIn = GoogleSignIn();
   // ignore: unused_field
   FirebaseAuth _auth;
@@ -35,29 +71,6 @@ class _LoginScreenState extends State<LoginScreen> {
       isUserSignedIn = userSignedIn;
     });
   }
-
-  final kHintTextStyle = TextStyle(
-    color: Colors.white54,
-    fontFamily: 'OpenSans',
-  );
-
-  final kLabelStyle = TextStyle(
-    color: Colors.white,
-    fontWeight: FontWeight.bold,
-    fontFamily: 'OpenSans',
-  );
-
-  final kBoxDecorationStyle = BoxDecoration(
-    color: Color(0xFF6CA8F1),
-    borderRadius: BorderRadius.circular(10.0),
-    boxShadow: [
-      BoxShadow(
-        color: Colors.black12,
-        blurRadius: 6.0,
-        offset: Offset(0, 2),
-      ),
-    ],
-  );
 
   Future<User> _handleSignIn() async {
     User user;
@@ -92,10 +105,9 @@ class _LoginScreenState extends State<LoginScreen> {
 
   void onGoogleSignIn(BuildContext context) async {
     User user = await _handleSignIn();
-    var userSignedIn = await Navigator.pushReplacement(
+    var userSignedIn = await Navigator.push(
       context,
-      MaterialPageRoute(
-          builder: (context) => WelcomeUserWidget(user, _googleSignIn)),
+      MaterialPageRoute(builder: (context) => WelcomeUserWidget()),
     );
 
     setState(() {
@@ -153,27 +165,53 @@ class _LoginScreenState extends State<LoginScreen> {
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
                           GestureDetector(
-                            onTap: () {
-                              onGoogleSignIn(context);
-                            },
-                            child: Image.network(
-                              'https://imager-x.spacecat.ninja/imager-x-poster.png',
-                              height: 50,
-                              width: 50,
-                            ),
-                          ),
+                              onTap: () {
+                                onGoogleSignIn(context);
+                              },
+                              child: ClipOval(
+                                child: Image.network(
+                                  'https://i.pinimg.com/originals/45/20/dd/4520ddfc56208707045c56232e946f7f.jpg',
+                                  fit: BoxFit.cover,
+                                  height: 50,
+                                ),
+                              )),
                           GestureDetector(
-                            onTap: () {
-                              onGoogleSignIn(context);
-                            },
-                            child: Image.network(
-                              'https://imager-x.spacecat.ninja/imager-x-poster.png',
-                              height: 50,
-                              width: 50,
+                              onTap: () {
+                                _login();
+                              },
+                              child: Container(
+                                decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    shape: BoxShape.circle),
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(100),
+                                  child: Image.network(
+                                    'https://logowik.com/content/uploads/images/new-facebook-logo-2019.jpg',
+                                    fit: BoxFit.cover,
+                                    height: 50,
+                                  ),
+                                ),
+                              )),
+                        ],
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: FlatButton(
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => WelcomeUserWidget()));
+                          },
+                          child: Text(
+                            'تخطي',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 20.0,
                             ),
                           ),
-                        ],
-                      )
+                        ),
+                      ),
                     ],
                   ),
                 ),

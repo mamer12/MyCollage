@@ -81,8 +81,8 @@ class UniList extends StatelessWidget {
                     Row(
                       children: [
                         Icon(
-                          Icons.star_border,
-                          color: Colors.blue,
+                          Icons.star,
+                          color: Color(0xFF263859),
                         ),
                         SizedBox(
                           width: 6,
@@ -93,8 +93,8 @@ class UniList extends StatelessWidget {
                     Row(
                       children: [
                         Icon(
-                          Icons.star_border,
-                          color: Colors.blue,
+                          Icons.location_on,
+                          color: Color(0xFF263859),
                         ),
                         SizedBox(
                           width: 6,
@@ -105,8 +105,8 @@ class UniList extends StatelessWidget {
                     Row(
                       children: [
                         Icon(
-                          Icons.star_border,
-                          color: Colors.blue,
+                          Icons.home_repair_service_rounded,
+                          color: Color(0xFF263859),
                         ),
                         SizedBox(
                           width: 6,

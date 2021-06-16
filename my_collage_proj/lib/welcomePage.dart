@@ -70,6 +70,24 @@ class _WelcomePageState extends State<WelcomePage> {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
                 Container(
+                  //   alignment: Alignment.topLeft,
+                  //   child: FlatButton(
+                  //     onPressed: () {
+                  //       Navigator.push(
+                  //           context,
+                  //           MaterialPageRoute(
+                  //               builder: (context) => LoginScreen()));
+                  //     },
+                  //     child: Text(
+                  //       'تخطي',
+                  //       style: TextStyle(
+                  //         color: Colors.white,
+                  //         fontSize: 20.0,
+                  //       ),
+                  //     ),
+                  //   ),
+                  // ),
+                  // Container(
                   height: 600.0,
                   child: PageView(
                     physics: ClampingScrollPhysics(),

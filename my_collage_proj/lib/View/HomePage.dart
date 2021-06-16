@@ -1,15 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:getwidget/components/carousel/gf_carousel.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:flutter/widgets.dart';
 import 'package:my_collage_proj/app_Data.dart';
 import 'package:my_collage_proj/widgets/homePageitem.dart';
 
+import '../SignIn.dart';
+
 // ignore: must_be_immutable
 class WelcomeUserWidget extends StatefulWidget {
   GoogleSignIn _googleSignIn;
   User _user;
-  WelcomeUserWidget(User user, GoogleSignIn signIn) {
+  WelcomeUserWidget({User user, GoogleSignIn signIn}) {
     _user = user;
     _googleSignIn = signIn;
   }
@@ -21,6 +24,15 @@ class WelcomeUserWidget extends StatefulWidget {
 class _WelcomeUserWidgetState extends State<WelcomeUserWidget> {
   bool isUserSignedIn = false;
   int count = 0;
+
+  final List<String> imageList = [
+    "https://img.freepik.com/free-vector/university-college-building-education-student-flat-campus-design-graduation-university_1284-41481.jpg?size=626&ext=jpg",
+    "https://img.freepik.com/free-vector/university-college-building-education-student-flat-campus-design-graduation-university_1284-41481.jpg?size=626&ext=jpg",
+    "https://img.freepik.com/free-vector/university-college-building-education-student-flat-campus-design-graduation-university_1284-41481.jpg?size=626&ext=jpg",
+    "https://cdn.pixabay.com/photo/2019/12/20/00/03/road-4707345_960_720.jpg",
+    "https://cdn.pixabay.com/photo/2019/12/22/04/18/x-mas-4711785__340.jpg",
+    "https://cdn.pixabay.com/photo/2016/11/22/07/09/spruce-1848543__340.jpg"
+  ];
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
@@ -29,135 +41,77 @@ class _WelcomeUserWidgetState extends State<WelcomeUserWidget> {
       },
       child: Scaffold(
         appBar: AppBar(
-          title: Text('اهلا بك'),
+          title: Text('الصفحة الرئيسية'),
           backgroundColor: Color(0xFF17223b),
           elevation: 0,
-          centerTitle: false,
+          centerTitle: true,
           titleSpacing: 0,
-        ),
-        drawer: Drawer(
-            child: Column(
-          children: <Widget>[
-            SizedBox(
-              height: 30,
-            ),
-            DrawerHeader(
-              child: ClipRRect(
-                  borderRadius: BorderRadius.circular(100.0),
-                  child: Image.network(
-                    widget._user.photoURL,
-                    fit: BoxFit.cover,
-                  )),
-              decoration: BoxDecoration(
-                color: Colors.transparent,
-              ),
-            ),
-            SizedBox(
-              height: 20,
-            ),
-            GestureDetector(
-              onTap: () {
-                setState(() {});
-                Navigator.of(context).pop();
-              },
-              child: Text(
-                'Profile',
-                style: TextStyle(
-                  fontFamily: 'Avenir',
-                  fontSize: 24,
-                  fontWeight: FontWeight.w700,
-                ),
-                textAlign: TextAlign.center,
-              ),
-            ),
-            SizedBox(
-              height: 45,
-            ),
-            GestureDetector(
-              onTap: () {},
-              child: Text(
-                'Settings',
-                style: TextStyle(
-                  fontFamily: 'Avenir',
-                  fontSize: 24,
-                  fontWeight: FontWeight.w700,
-                ),
-                textAlign: TextAlign.center,
-              ),
-            ),
-            SizedBox(
-              height: 45,
-            ),
-            Text(
-              'About',
-              style: TextStyle(
-                fontFamily: 'Avenir',
-                fontSize: 24,
-                fontWeight: FontWeight.w700,
-              ),
-              textAlign: TextAlign.center,
-            ),
-            SizedBox(
-              height: 45,
-            ),
-            TextButton(
-                onPressed: () {
-                  widget._googleSignIn.signOut();
-                  Navigator.popUntil(context, (route) {
-                    return count++ == 2;
-                  });
-                },
-                child: Text(
-                  'Log Out',
-                  style: TextStyle(
-                    color: Colors.red,
-                    fontFamily: 'Avenir',
-                    fontSize: 24,
-                    fontWeight: FontWeight.w700,
-                  ),
-                  textAlign: TextAlign.center,
-                )),
-            SizedBox(
-              height: 45,
-            ),
-            Material(
-              borderRadius: BorderRadius.circular(500),
-              child: InkWell(
-                borderRadius: BorderRadius.circular(500),
-                splashColor: Colors.black45,
-                onTap: () {
-                  Navigator.of(context).pop();
-                },
-                child: CircleAvatar(
-                  radius: 20,
-                  backgroundColor: Colors.black,
-                  child: Icon(Icons.arrow_back, color: Colors.white),
-                ),
-              ),
-            ),
-            Expanded(
-                child: Align(
-              alignment: Alignment.bottomCenter,
-              child: Container(
-                height: 65,
-                width: MediaQuery.of(context).size.width,
-                color: Colors.black,
-              ),
-            )),
+          actions: [
+            Container(
+                alignment: Alignment.topLeft,
+                child: FlatButton(
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => LoginScreen()));
+                    },
+                    child: Icon(
+                      Icons.logout,
+                      color: Colors.white,
+                    ))),
           ],
-        )),
-        body: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: GridView(
-              gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-                  childAspectRatio: 7.5 / 8,
-                  crossAxisSpacing: 10,
-                  maxCrossAxisExtent: 200,
-                  mainAxisSpacing: 10),
-              children: page_Data
-                  .map((homeData) =>
-                      DataName(homeData.title, homeData.imgUrl, homeData.id))
-                  .toList()),
+        ),
+        // bottomNavigationBar: MyHomePage(),
+        body: Stack(
+          children: [
+            GFCarousel(
+              activeIndicator: Colors.white,
+              autoPlay: true,
+              pagerSize: 10,
+              pagination: true,
+              height: 200,
+              enableInfiniteScroll: true,
+              items: imageList.map(
+                (url) {
+                  return Container(
+                    margin: EdgeInsets.all(8.0),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                      child:
+                          Image.network(url, fit: BoxFit.cover, width: 1000.0),
+                    ),
+                  );
+                },
+              ).toList(),
+              onPageChanged: (index) {
+                setState(() {
+                  index;
+                });
+              },
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 210.0, right: 20),
+              child: Text(
+                'التصنيفات',
+                style: Theme.of(context).textTheme.headline5,
+                textAlign: TextAlign.right,
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 250.0, left: 10, right: 10),
+              child: GridView(
+                  gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+                      childAspectRatio: 5 / 3,
+                      crossAxisSpacing: 10,
+                      maxCrossAxisExtent: 200,
+                      mainAxisSpacing: 10),
+                  children: page_Data
+                      .map((homeData) => DataName(
+                          homeData.title, homeData.imgUrl, homeData.id))
+                      .toList()),
+            )
+          ],
         ),
       ),
     );

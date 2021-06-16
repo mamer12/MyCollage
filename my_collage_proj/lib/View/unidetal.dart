@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_collage_proj/app_Data.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 
 class Unidetal extends StatelessWidget {
   static const uniDetalRoute = '/uni-detal';
@@ -82,7 +83,7 @@ class Unidetal extends StatelessWidget {
                       ),
                       Container(
                         padding: EdgeInsets.all(32),
-                        color: Colors.blue,
+                        color: Color(0xFF263859),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: <Widget>[
@@ -92,29 +93,29 @@ class Unidetal extends StatelessWidget {
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: <Widget>[
                                     Icon(
-                                      Icons.check_box,
+                                      Icons.picture_as_pdf_rounded,
                                       color: Colors.white,
                                       size: 30,
                                     ),
                                     SizedBox(
                                       width: 4,
                                     ),
-                                    Text(
-                                      "234",
+                                    AutoSizeText(
+                                      '${selectdeUni.researchs}',
                                       style: TextStyle(
                                           color: Colors.white,
                                           fontWeight: FontWeight.w700,
-                                          fontFamily: "Roboto",
+                                          fontFamily: 'Tajawal',
                                           fontSize: 24),
-                                    )
+                                    ),
                                   ],
                                 ),
                                 Text(
-                                  "Jobs Done",
+                                  "عدد البحوث",
                                   style: TextStyle(
                                       color: Colors.white,
                                       fontWeight: FontWeight.w400,
-                                      fontFamily: "Roboto",
+                                      fontFamily: 'Tajawal',
                                       fontSize: 15),
                                 )
                               ],
@@ -125,7 +126,7 @@ class Unidetal extends StatelessWidget {
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: <Widget>[
                                     Icon(
-                                      Icons.favorite,
+                                      Icons.business_outlined,
                                       color: Colors.white,
                                       size: 30,
                                     ),
@@ -133,21 +134,21 @@ class Unidetal extends StatelessWidget {
                                       width: 4,
                                     ),
                                     Text(
-                                      "400",
+                                      '${selectdeUni.space}',
                                       style: TextStyle(
                                           color: Colors.white,
                                           fontWeight: FontWeight.w700,
-                                          fontFamily: "Roboto",
+                                          fontFamily: 'Tajawal',
                                           fontSize: 24),
                                     )
                                   ],
                                 ),
                                 Text(
-                                  "Jobs Done",
+                                  "مساحة الكلية",
                                   style: TextStyle(
                                       color: Colors.white,
                                       fontWeight: FontWeight.w400,
-                                      fontFamily: "Roboto",
+                                      fontFamily: 'Tajawal',
                                       fontSize: 15),
                                 )
                               ],
@@ -166,21 +167,21 @@ class Unidetal extends StatelessWidget {
                                       width: 4,
                                     ),
                                     Text(
-                                      "5",
+                                      '${selectdeUni.rating}',
                                       style: TextStyle(
                                           color: Colors.white,
                                           fontWeight: FontWeight.w700,
-                                          fontFamily: "Roboto",
+                                          fontFamily: 'Tajawal',
                                           fontSize: 24),
                                     )
                                   ],
                                 ),
                                 Text(
-                                  "Ratings",
+                                  "التقييمات",
                                   style: TextStyle(
                                       color: Colors.white,
-                                      fontWeight: FontWeight.w400,
-                                      fontFamily: "Roboto",
+                                      fontWeight: FontWeight.w600,
+                                      fontFamily: 'Tajawal',
                                       fontSize: 15),
                                 )
                               ],
@@ -205,7 +206,7 @@ class Unidetal extends StatelessWidget {
                                 style: TextStyle(
                                     color: Colors.grey[800],
                                     fontWeight: FontWeight.w700,
-                                    fontFamily: "Roboto",
+                                    fontFamily: 'Tajawal',
                                     fontSize: 18),
                               ),
                             ),
@@ -215,7 +216,7 @@ class Unidetal extends StatelessWidget {
                             Text(
                               '${selectdeUni.description}',
                               style: TextStyle(
-                                fontFamily: "Roboto",
+                                fontFamily: 'Tajawal',
                                 fontSize: 15,
                               ),
                             ),
@@ -281,11 +282,11 @@ class Unidetal extends StatelessWidget {
                         child: Column(
                           children: <Widget>[
                             Text(
-                              "Reviews",
+                              "الاقسام",
                               style: TextStyle(
                                   color: Colors.grey[800],
                                   fontSize: 18,
-                                  fontFamily: "Roboto",
+                                  fontFamily: 'Tajawal',
                                   fontWeight: FontWeight.w700),
                             ),
                             Container(
@@ -300,11 +301,13 @@ class Unidetal extends StatelessWidget {
                                         mainAxisAlignment:
                                             MainAxisAlignment.spaceBetween,
                                         children: <Widget>[
-                                          Text("Client $index",
+                                          AutoSizeText(
+                                              "${selectdeUni.sections[index]}",
+                                              overflow: TextOverflow.visible,
                                               style: TextStyle(
-                                                  color: Colors.lightBlue,
-                                                  fontSize: 18,
-                                                  fontFamily: "Roboto",
+                                                  color: Color(0xFF263859),
+                                                  fontSize: 16,
+                                                  fontFamily: 'Tajawal',
                                                   fontWeight: FontWeight.w700)),
                                           Row(
                                             children: <Widget>[
@@ -328,11 +331,12 @@ class Unidetal extends StatelessWidget {
                                         height: 8,
                                       ),
                                       Text(
-                                          "He is very fast and good at his work",
+                                          "${selectdeUni.sectionsDescription[index]}",
+                                          overflow: TextOverflow.fade,
                                           style: TextStyle(
                                               color: Colors.grey[800],
                                               fontSize: 14,
-                                              fontFamily: "Roboto",
+                                              fontFamily: 'Tajawal',
                                               fontWeight: FontWeight.w400)),
                                       SizedBox(
                                         height: 16,
