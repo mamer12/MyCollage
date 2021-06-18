@@ -182,15 +182,9 @@ class _LoginScreenState extends State<LoginScreen> {
                                 child: Image.network(
                                   'https://i.pinimg.com/originals/45/20/dd/4520ddfc56208707045c56232e946f7f.jpg',
                                   fit: BoxFit.fill,
-                                  height: 60,
+                                  height: 50,
                                 ),
                               )),
-                          VerticalDivider(
-                            thickness: 20,
-                            color: Colors.white,
-                            endIndent: 20,
-                            width: 20,
-                          ),
                           GestureDetector(
                               onTap: () {
                                 _login();
@@ -200,10 +194,9 @@ class _LoginScreenState extends State<LoginScreen> {
                                     color: Colors.white,
                                     shape: BoxShape.circle),
                                 child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(100),
+                                  borderRadius: BorderRadius.circular(10),
                                   child: Image.network(
-                                    'https://logowik.com/content/uploads/images/new-facebook-logo-2019.jpg',
-                                    fit: BoxFit.fill,
+                                    'https://facebookbrand.com/wp-content/uploads/2019/04/f_logo_RGB-Hex-Blue_512.png?w=512&h=512',
                                     height: 50,
                                   ),
                                 ),

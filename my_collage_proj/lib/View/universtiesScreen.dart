@@ -11,8 +11,6 @@ class UniverstiesPage extends StatefulWidget {
 }
 
 class _UniverstiesPageState extends State<UniverstiesPage> {
-  Map<String, dynamic> jsonData = {};
-
   @override
   Widget build(BuildContext context) {
     final routeNamed =

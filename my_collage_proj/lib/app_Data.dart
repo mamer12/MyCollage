@@ -1,4 +1,5 @@
 import 'models/HomePageDef.dart';
+import 'models/provincesModal.dart';
 import 'models/universties.dart';
 
 const page_Data = const [
@@ -13,30 +14,11 @@ const page_Data = const [
       imgUrl:
           'https://media.istockphoto.com/vectors/graduation-cap-and-education-vector-id1143673268?b=1&k=6&m=1143673268&s=612x612&w=0&h=Kh8SOThoq1ThqsO9vH2uHERDsLWX7Ws_7XJ3h-bq_Bc='),
   HomeData(
-      id: 'A3',
-      title: 'ترتيب حسب مساحة الكلية',
-      imgUrl:
-          'https://media.istockphoto.com/vectors/graduation-cap-and-education-vector-id1143673268?b=1&k=6&m=1143673268&s=612x612&w=0&h=Kh8SOThoq1ThqsO9vH2uHERDsLWX7Ws_7XJ3h-bq_Bc=',
-      provinces: [
-        'الأنبار',
-        'بابل',
-        'بغداد',
-        'البصرة',
-        'ذي قار',
-        'ديالى',
-        'دهوك',
-        'أربيل',
-        'كربلاء',
-        'كركوك',
-        'ميسان',
-        'المثنى',
-        'النجف',
-        'نينوى',
-        'القادسية',
-        'صلاح الدين',
-        'السليمانية',
-        'واسط',
-      ]),
+    id: 'A3',
+    title: 'ترتيب حسب مساحة الكلية',
+    imgUrl:
+        'https://media.istockphoto.com/vectors/graduation-cap-and-education-vector-id1143673268?b=1&k=6&m=1143673268&s=612x612&w=0&h=Kh8SOThoq1ThqsO9vH2uHERDsLWX7Ws_7XJ3h-bq_Bc=',
+  ),
   HomeData(
       id: 'A4',
       title: 'ترتيب حسب عدد البحوث',
@@ -57,7 +39,7 @@ const Universty_data = const [
   Universty(
       id: "B1",
       category: ['A1', 'A2', 'A3'],
-      title: 'الرافدين',
+      title: 'كلية الرافدين الجامعه',
       yearPub: '1988',
       provinces: 'بغداد',
       description:
@@ -100,4 +82,62 @@ const Universty_data = const [
       ],
       researchs: '306',
       space: '500 متر'),
+  Universty(
+      id: "B2",
+      category: ['A1', 'A2', 'A3'],
+      title: 'كلية التراث الجامعة',
+      yearPub: '1988',
+      provinces: 'بغداد',
+      description:
+          'تأسست كلية التراث الجامعة في 1988/1/12 وتعتبر أول كلية اهلية على مستوى العراق. حيث تضم الكلية العديد من الاقسام',
+      image: 'https://cis.turath.edu.iq/new%20logo.png',
+      teachersImage: [
+        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScHnBJmH0QRV1LJbwTUxHFM4mRWBUar8RIWw&usqp=CAU',
+      ],
+      rating: 5,
+      deanImage: 'https://i.ytimg.com/vi/ntR5u8hTKOk/mqdefault.jpg',
+      deanName: 'أ. م. د. جعفر جابر جواد الموسوي',
+      sections: [
+        'قسم اللغة الإنكليزية',
+        'قسم القانون',
+        'قسم إدارة الأعمال',
+        'قسم علوم الحاسبات',
+        'قسم تقنيات صناعة الأسنان',
+        'قسم التربية البدنية وعلوم الرياضة',
+        'قسم تقنيات التخدير',
+        'قسم تقنيات المختبر الطبية ',
+        'قسم تقنيات الأشعة',
+        'قسم طب الأسنان',
+        'قسم المحاسبة',
+        'قسم علوم الحاسوب',
+        'قسم هندسة تقنيات الحاسبات',
+      ],
+      sectionsDescription: [
+        'ي عام 2018 تم توسيع الجامعة وإضافة أقسام جديدة وتركّز كلية التراث على رفع المستوى العلمي للطلبة للنهوض بالمسيرة التعليمية في القطر وقد قامت الكلية خلال السنوات الأخيرة بتعيين عدد من خيرة المُدرّسين في كافة الاختصاصات العلمية والأكاديمية وأقامت العديد من المؤتمرات العلمية وما زالت مستمرة في مسيرتها رغم المصاعب الكثيرة، وقد تزايد أعداد الطلبة في السنوات الأخيرة وتسعى الكلية لفتح الدراسة المسائية في قسم المحاسبة والإدارة بالإضافة إلى الإقبال المتزايد على قسم القانون كون أنها تُعَد من أعرق الكليات الأهلية في العراق'
+      ],
+      researchs: '306',
+      space: '500 متر'),
+];
+
+const Provinces_data = const [
+  Provinces(provinces: [
+    'الأنبار',
+    'بابل',
+    'بغداد',
+    'البصرة',
+    'ذي قار',
+    'ديالى',
+    'دهوك',
+    'أربيل',
+    'كربلاء',
+    'كركوك',
+    'ميسان',
+    'المثنى',
+    'النجف',
+    'نينوى',
+    'القادسية',
+    'صلاح الدين',
+    'السليمانية',
+    'واسط',
+  ])
 ];
