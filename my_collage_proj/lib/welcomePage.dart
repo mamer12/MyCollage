@@ -139,7 +139,7 @@ class _WelcomePageState extends State<WelcomePage> {
                             ),
                             SizedBox(height: 15.0),
                             Text(
-                              'صار بأمكانك تبحث عن جميع الجامعات والكليات العرافيه وانت ببيتك فقط !',
+                              'صار بأمكانك تبحث عن جميع الجامعات والكليات العراقية وانت ببيتك فقط !',
                               style: kSubtitleStyle,
                             ),
                           ],
