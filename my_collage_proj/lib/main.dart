@@ -26,19 +26,25 @@ class MyApp extends StatelessWidget {
       ],
       title: 'MyCollثge',
       theme: ThemeData(
-          primaryColor: Color(0xFF263859),
-          fontFamily: 'Tajawal',
-          textTheme: ThemeData.light().textTheme.copyWith(
-              headline5: TextStyle(
-                  color: Colors.white,
-                  fontSize: 25,
-                  fontFamily: 'Tajawal',
-                  fontWeight: FontWeight.normal),
-              headline6: TextStyle(
-                  color: Colors.white,
-                  fontSize: 26,
-                  fontFamily: 'Tajawal',
-                  fontWeight: FontWeight.normal))),
+        primaryColor: Color(0xFF263859),
+        fontFamily: 'Tajawal',
+        textTheme: ThemeData.light().textTheme.copyWith(
+            headline5: TextStyle(
+                color: Colors.white,
+                fontSize: 25,
+                fontFamily: 'Tajawal',
+                fontWeight: FontWeight.normal),
+            headline1: TextStyle(
+                color: Colors.black,
+                fontSize: 25,
+                fontFamily: 'Tajawal',
+                fontWeight: FontWeight.normal),
+            headline6: TextStyle(
+                color: Colors.white,
+                fontSize: 10,
+                fontFamily: 'Tajawal',
+                fontWeight: FontWeight.normal)),
+      ),
       routes: {
         '/': (ctx) => WelcomePage(),
         UniverstiesPage.uniPage: (ctx) => UniverstiesPage(),

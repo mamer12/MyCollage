@@ -22,18 +22,25 @@ class DataName extends StatelessWidget {
       borderRadius: BorderRadius.circular(15),
       child: Stack(
         children: [
-          Card(
-            elevation: 1,
-            shadowColor: Colors.black,
-            child: CachedNetworkImage(
-              imageUrl: imgUrl,
-              width: 200,
-              fit: BoxFit.cover,
-              progressIndicatorBuilder: (context, url, downloadProgress) =>
-                  Center(
-                      child: CircularProgressIndicator(
-                          value: downloadProgress.progress)),
-              errorWidget: (context, url, error) => Icon(Icons.error),
+          Container(
+            decoration: BoxDecoration(borderRadius: BorderRadius.circular(20)),
+            child: Card(
+              elevation: 1,
+              shadowColor: Colors.black,
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(20),
+                child: CachedNetworkImage(
+                  imageUrl: imgUrl,
+                  height: 200,
+                  width: double.infinity,
+                  fit: BoxFit.fill,
+                  progressIndicatorBuilder: (context, url, downloadProgress) =>
+                      Center(
+                          child: CircularProgressIndicator(
+                              value: downloadProgress.progress)),
+                  errorWidget: (context, url, error) => Icon(Icons.error),
+                ),
+              ),
             ),
           ),
           Container(
@@ -41,9 +48,9 @@ class DataName extends StatelessWidget {
             alignment: Alignment.center,
             child: Text(title,
                 textAlign: TextAlign.center,
-                style: Theme.of(context).textTheme.headline6),
+                style: Theme.of(context).textTheme.headline5),
             decoration: BoxDecoration(
-                color: Colors.black.withOpacity(0.4),
+                color: Colors.transparent,
                 borderRadius: BorderRadius.circular(15)),
           )
         ],

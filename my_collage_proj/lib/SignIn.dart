@@ -60,7 +60,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
   void initApp() async {
     FirebaseApp defaultApp = await Firebase.initializeApp();
-    _auth = FirebaseAuth.instanceFor(app: defaultApp);
+    _auth = FirebaseAuth.instanceFor();
     checkIfUserIsSignedIn();
   }
 

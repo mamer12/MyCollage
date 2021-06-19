@@ -7,33 +7,33 @@ const page_Data = const [
       id: 'A1',
       title: 'جميع الجامعات',
       imgUrl:
-          'https://media.istockphoto.com/vectors/graduation-cap-and-education-vector-id1143673268?b=1&k=6&m=1143673268&s=612x612&w=0&h=Kh8SOThoq1ThqsO9vH2uHERDsLWX7Ws_7XJ3h-bq_Bc='),
+          'https://res.cloudinary.com/practicaldev/image/fetch/s--O9ba8jFZ--/c_imagga_scale,f_auto,fl_progressive,h_500,q_auto,w_1000/https://thepracticaldev.s3.amazonaws.com/i/vdyza3io4dt4tk8wvtff.png'),
   HomeData(
       id: 'A2',
       title: 'الجامعات المعروفة',
       imgUrl:
-          'https://media.istockphoto.com/vectors/graduation-cap-and-education-vector-id1143673268?b=1&k=6&m=1143673268&s=612x612&w=0&h=Kh8SOThoq1ThqsO9vH2uHERDsLWX7Ws_7XJ3h-bq_Bc='),
+          'https://digitalsynopsis.com/wp-content/uploads/2018/03/beautiful-color-gradient-hues-backgrounds-abdcff-0396ff.png'),
   HomeData(
     id: 'A3',
     title: 'ترتيب حسب مساحة الكلية',
     imgUrl:
-        'https://media.istockphoto.com/vectors/graduation-cap-and-education-vector-id1143673268?b=1&k=6&m=1143673268&s=612x612&w=0&h=Kh8SOThoq1ThqsO9vH2uHERDsLWX7Ws_7XJ3h-bq_Bc=',
+        'https://i0.wp.com/css-tricks.com/wp-content/uploads/2020/11/css-gradient.png?fit=1200%2C600&ssl=1',
   ),
   HomeData(
       id: 'A4',
       title: 'ترتيب حسب عدد البحوث',
       imgUrl:
-          'https://media.istockphoto.com/vectors/graduation-cap-and-education-vector-id1143673268?b=1&k=6&m=1143673268&s=612x612&w=0&h=Kh8SOThoq1ThqsO9vH2uHERDsLWX7Ws_7XJ3h-bq_Bc='),
+          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0VW5P7uGxTfAR3hLI4SO8eGKcGRlSRi09Xg&usqp=CAU'),
   HomeData(
       id: 'A5',
       title: 'ترتيب حسب وزاة التعليم',
       imgUrl:
-          'https://media.istockphoto.com/vectors/graduation-cap-and-education-vector-id1143673268?b=1&k=6&m=1143673268&s=612x612&w=0&h=Kh8SOThoq1ThqsO9vH2uHERDsLWX7Ws_7XJ3h-bq_Bc='),
+          'https://ak.picdn.net/shutterstock/videos/1012174280/thumb/1.jpg?ip=x480'),
   HomeData(
       id: 'A6',
       title: 'ترتيب حسب سنة التأسيس',
       imgUrl:
-          'https://media.istockphoto.com/vectors/graduation-cap-and-education-vector-id1143673268?b=1&k=6&m=1143673268&s=612x612&w=0&h=Kh8SOThoq1ThqsO9vH2uHERDsLWX7Ws_7XJ3h-bq_Bc='),
+          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQieGaj7gKmoSGMhWkYXeVuykGe2RwPsGnDW29H8E2xMp5gLYLj8gju5wrKxaJi0LBm70&usqp=CAU'),
 ];
 const Universty_data = const [
   Universty(

@@ -12,43 +12,42 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final List<String> imageList = [
-    "https://img.freepik.com/free-vector/university-college-building-education-student-flat-campus-design-graduation-university_1284-41481.jpg?size=626&ext=jpg",
-    "https://img.freepik.com/free-vector/university-college-building-education-student-flat-campus-design-graduation-university_1284-41481.jpg?size=626&ext=jpg",
-    "https://img.freepik.com/free-vector/university-college-building-education-student-flat-campus-design-graduation-university_1284-41481.jpg?size=626&ext=jpg",
-    "https://cdn.pixabay.com/photo/2019/12/20/00/03/road-4707345_960_720.jpg",
-    "https://cdn.pixabay.com/photo/2019/12/22/04/18/x-mas-4711785__340.jpg",
-    "https://cdn.pixabay.com/photo/2016/11/22/07/09/spruce-1848543__340.jpg"
+    "https://mamonrasool.com/project/res/logo.png",
+    "https://i.pinimg.com/originals/67/b8/1f/67b81fa55167af70307b96cd19fe0816.jpg",
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSZGv5sJ8rsWWG1JZGlorxK-fqI5U6wWTdVw&usqp=CAU",
+    "http://uoalfarahidi.edu.iq/wp-content/uploads/2020/09/logo-with-text.png",
+    "https://scontent.fnjf7-2.fna.fbcdn.net/v/t1.6435-9/p960x960/125929289_2549832845315306_2606382674225247550_n.jpg?_nc_cat=108&ccb=1-3&_nc_sid=e3f864&_nc_ohc=ijkLJWcHwTwAX8nVrSu&_nc_ht=scontent.fnjf7-2.fna&tp=6&oh=8e1b316bf6125c1629c68fe16b2c153b&oe=60D2C521",
+    "https://scontent.fnjf7-2.fna.fbcdn.net/v/t1.6435-0/p600x600/130992446_1825021284322328_4621911683514703742_n.jpg?_nc_cat=103&ccb=1-3&_nc_sid=e3f864&_nc_ohc=evjDcB2D3UsAX_RRgGv&_nc_ht=scontent.fnjf7-2.fna&tp=6&oh=34c9671dff352b9db9fa358449c55d6c&oe=60D21575"
   ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
           title: Image.asset(
-            'assets/images/first.png',
+            'assets/images/logoBlack.png',
             fit: BoxFit.cover,
-            height: 50,
-            width: 50,
+            height: 100,
           ),
           backgroundColor: Colors.white,
           elevation: 22,
           centerTitle: true,
           titleSpacing: 0,
-          actions: [
-            Container(
-                color: Colors.black,
-                alignment: Alignment.topLeft,
-                child: FlatButton(
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => LoginScreen()));
-                    },
-                    child: Icon(
-                      Icons.logout,
-                      color: Colors.white,
-                    ))),
-          ],
+          // actions: [
+          //   // Container(
+          //   //     color: Colors.black,
+          //   //     alignment: Alignment.topLeft,
+          //   //     child: FlatButton(
+          //   //         onPressed: () {
+          //   //           Navigator.push(
+          //   //               context,
+          //   //               MaterialPageRoute(
+          //   //                   builder: (context) => LoginScreen()));
+          //   //         },
+          //   //         child: Icon(
+          //   //           Icons.logout,
+          //   //           color: Colors.white,
+          //   //         ))),
+          // ],
         ),
         body: Stack(
           children: [
@@ -66,7 +65,7 @@ class _HomePageState extends State<HomePage> {
                     child: ClipRRect(
                       borderRadius: BorderRadius.all(Radius.circular(20.0)),
                       child:
-                          Image.network(url, fit: BoxFit.cover, width: 1000.0),
+                          Image.network(url, fit: BoxFit.fill, width: 1000.0),
                     ),
                   );
                 },
