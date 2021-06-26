@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
       supportedLocales: [
         const Locale('ar', ''), // English, no country code
       ],
-      title: 'MyCollثge',
+      title: 'MyCollege',
       theme: ThemeData(
         primaryColor: Color(0xFF263859),
         fontFamily: 'Tajawal',
